@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Halaman detail lembaga should renders correctly (inactive) 1`] = `ShallowWrapper {}`;
+
+exports[`Halaman detail lembaga should renders correctly (inactive) 2`] = `ShallowWrapper {}`;

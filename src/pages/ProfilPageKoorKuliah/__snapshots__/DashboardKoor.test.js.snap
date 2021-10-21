@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dashboard koor kuliah page exist daftar mahasiswa 1`] = `ShallowWrapper {}`;
+
+exports[`dashboard koor kuliah page exist dashboard koor 1`] = `ShallowWrapper {}`;
+
+exports[`dashboard koor praktikum page exist dashboard koor 1`] = `ShallowWrapper {}`;

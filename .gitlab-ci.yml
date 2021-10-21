@@ -1,0 +1,58 @@
+stages:
+  - test
+  - lint
+  - sonar
+  - deploy
+
+test:
+  image: public.ecr.aws/bitnami/node:latest
+  stage: test
+  cache:
+    paths:
+      - node_modules/
+  artifacts:
+    paths:
+      - coverage/
+  before_script:
+    - yarn cache clean && yarn
+  script:
+    - unset CI
+    - npm run build
+    - npm test -- --coverage --watchAll=false -u
+
+SonarScanner:
+  image: addianto/sonar-scanner-cli:latest
+  stage: sonar
+  script:
+    - sonar-scanner
+      -Dsonar.host.url=https://pmpl.cs.ui.ac.id/sonarqube
+      -Dsonar.login=$SONARQUBE_TOKEN
+      -Dsonar.projectKey=$SONARQUBE_PROJECT_KEY
+      -Dsonar.branch.name=$CI_COMMIT_REF_NAME
+
+Lint:
+  image: node:latest
+  stage: lint
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - ./node_modules/.bin/eslint src/**/*.js
+  allow_failure: true
+
+Deployment:
+  image: ruby:2.4
+  stage: deploy
+  before_script:
+    - gem install dpl
+    - wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+  script:
+    - dpl --provider=heroku --app=$HEROKU_APPNAME --api-key=$HEROKU_APIKEY
+    - export HEROKU_API_KEY=$HEROKU_APIKEY
+    - heroku run --app $HEROKU_APPNAME migrate
+  environment:
+    name: production
+    url: $HEROKU_APP_HOST
+  only:
+    - master
+    - staging

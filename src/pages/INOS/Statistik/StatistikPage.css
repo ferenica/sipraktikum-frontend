@@ -1,0 +1,50 @@
+.btnGrid {
+    display: flex;
+    justify-content: end;
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+}
+
+.emptyGrid {
+    flex-grow: 0;
+    max-width: 50%;
+    flex-basis: 50%;
+}
+
+@media only screen and (max-width: 1496px) {
+    .emptyGrid {
+        flex-grow: 0;
+        max-width: 0%;
+        flex-basis: 0%;
+    }
+    .btnGrid {
+        flex-grow: 0;
+        max-width: 48%;
+        flex-basis: 48%;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 1060px) {
+    .btnGrid {
+        flex-grow: 0;
+        max-width: 45%;
+        flex-basis: 45%;
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .emptyGrid {
+        flex-grow: 0;
+        max-width: 50%;
+        flex-basis: 50%;
+    }
+    .btnGrid {
+        flex-grow: 0;
+        max-width: 25%;
+        flex-basis: 25%;
+        justify-content: end;
+    }
+}

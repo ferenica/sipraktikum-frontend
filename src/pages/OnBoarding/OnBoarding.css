@@ -1,0 +1,14 @@
+div {
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.root {
+    padding: 20px 80px 20px 80px;
+    background-color: #F5F6F8;
+    box-shadow: none;
+}
+
+.slider {
+    margin-bottom: 250px;
+}

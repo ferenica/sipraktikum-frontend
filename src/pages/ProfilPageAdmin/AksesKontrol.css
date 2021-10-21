@@ -1,0 +1,40 @@
+.header {
+    padding-top: 3%;
+}
+
+.dropzone {
+    border-style: dashed;
+    border-width: 1px;
+    border-color: #F15B15;
+    background-color:#F2F2F2;
+}
+
+.title {
+    margin-bottom: 3px;
+}
+
+.cloud {
+    padding-top: 4%;
+}
+
+.description {
+    padding-top:10px;
+}
+
+.text-center p {
+    margin-bottom:3px;
+}
+
+.button1 {
+    margin:4px 2px !important;
+}
+
+#atau {
+    font-size: 70%;
+    color: #AAAAAA;
+}
+
+#subdesc {
+    font-size:14px;
+    padding-bottom: 4%; 
+}
